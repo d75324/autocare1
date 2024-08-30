@@ -1,9 +1,11 @@
 from django.contrib import admin
+from autocare.forms import VehicleForm
 from .models import Vehicle, Service
 
 #voy a crear las clases para ver Vehicle y Service desde el admin
 
 class VehicleAdmin(admin.ModelAdmin):
+    form = VehicleForm
     list_display = (
         'created_at',
         'owner',
