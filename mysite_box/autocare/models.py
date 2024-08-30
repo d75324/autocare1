@@ -12,7 +12,7 @@ USER_TYPE_CHOICES = [
 
 ]
 
-# Todas las marcas de autos disponibles. 
+# Todas las marcas de autos disponibles.
 BRAND_CHOICES = [
 
         ('Honda', 'Honda'),
@@ -79,7 +79,7 @@ class Vehicle(models.Model):
 
     def current_year():
         return datetime.date.today().year
-    
+
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Titular', related_name='vehicle_owner')
     plate = models.CharField(max_length=10, verbose_name='Patente')
     brand = models.CharField(max_length=50, choices=BRAND_CHOICES, verbose_name='Marca')
@@ -88,17 +88,17 @@ class Vehicle(models.Model):
     color = models.CharField(max_length=50, verbose_name='Color')
     car_mechanic = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Mecánico Asignado', related_name='assigned_mechanic')
     created_at = models.DateField(auto_now_add=True, verbose_name='Fecha Creación')
-    
+
     def __str__(self):
         return self.plate
 
 
 # listamos los servicios que puede recibir el vehiculo
 class Service(models.Model):
-    
+
     def current_year():
         return datetime.date.today().year
-    
+
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE, verbose_name='Patente')
     date = models.DateField(default=timezone.now, verbose_name='Fecha Servicio')
     kilometers = models.IntegerField(default=0, verbose_name='Kilometraje')

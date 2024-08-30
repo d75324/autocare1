@@ -18,11 +18,13 @@ class VehicleAdmin(admin.ModelAdmin):
         'created_at',
         'plate',
     )
-	
 
-	list_display = (
+
 admin.site.register(Vehicle, VehicleAdmin)
+
+
 class ServiceAdmin(admin.ModelAdmin):
+    list_display = (
         'vehicle',
         'date',
         'kilometers',
@@ -35,5 +37,6 @@ class ServiceAdmin(admin.ModelAdmin):
         'date',
         'service_type',
     )
+
 
 admin.site.register(Service, ServiceAdmin)
