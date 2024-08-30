@@ -17,6 +17,7 @@ class VehicleAdmin(admin.ModelAdmin):
     search_fields = (
         'created_at',
         'plate',
+        'car_mechanic__username',
     )
 
 
