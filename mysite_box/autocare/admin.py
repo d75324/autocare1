@@ -3,8 +3,8 @@ from .models import Vehicle, Service
 
 #voy a crear las clases para ver Vehicle y Service desde el admin
 
-	list_display = (
 class VehicleAdmin(admin.ModelAdmin):
+    list_display = (
         'created_at',
         'owner',
         'plate',
@@ -14,10 +14,9 @@ class VehicleAdmin(admin.ModelAdmin):
         'color',
         'car_mechanic',
     )
-	search_fields = (
-		'created_at',
-		'plate',
-		'car_mechanic',
+    search_fields = (
+        'created_at',
+        'plate',
     )
 	
 
@@ -31,10 +30,10 @@ class ServiceAdmin(admin.ModelAdmin):
         'coments',
         'cost',
     )
-	search_fields = (
-		'vehicle',
-		'date',
-		'service_type',
+    search_fields = (
+        'vehicle',
+        'date',
+        'service_type',
     )
 
 admin.site.register(Service, ServiceAdmin)
