@@ -3,5 +3,10 @@
     {% block content %}
     <div class="container my-4">
         <h1 class="text-center">Mis Autos</h1>
+        <ul>
+            {% for car in object_list.all %}
+            <li>{{ car.brand }} {{ car.plate }} {{ car.year }}</li>
+            {% endfor %}
+        </ul>
     </div>
     {% endblock %}

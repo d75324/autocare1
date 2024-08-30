@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import ListView, TemplateView
 
-class CarsView(TemplateView):
+from autocare.models import Vehicle
+
+class CarsView(ListView):
+    model = Vehicle
     template_name = 'cars.html'
 
 
